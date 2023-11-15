@@ -85,6 +85,11 @@ model_mlr <- lm(BPSysAve~SleepHrsNight+BMI+Age,NHANES)
 summary(model_mlr)
 ```
 
+```{r}
+p_array <- c(0.02,0.0022312,0.07,0.000222,1)
+significant_level(p_array)
+```
+
 
 # Comparing linear() with exsiting function lm() 
 

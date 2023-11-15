@@ -1,2 +1,5 @@
 exportPattern("^[[:alpha:]]+")
+import("Hmisc")
+import("NHANES")
+import("bench")
 importFrom("stats", "na.omit", "pt", "qt")
