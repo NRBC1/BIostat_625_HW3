@@ -39,8 +39,8 @@ information of coefficient
 l_Estimation use the output of function basic_linear to give more specific information.\cr
 }
 \examples{
-library(datasets)\cr
-data(iris)\cr
-b_l <- basic_linear("Sepal.Length", "Sepal.Width Petal.Length Species",iris)
+library(datasets)
+data(iris)
+b_l <- basic_linear("Sepal.Length", "Sepal.Width Petal.Length",iris)
 l_E <- l_Estimation(b_l[[3]],b_l[[2]],b_l[[6]],b_l[[7]],b_l[[4]],b_l[[5]])
 }

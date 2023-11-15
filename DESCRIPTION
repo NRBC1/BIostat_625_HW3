@@ -2,7 +2,7 @@ Package: HW3.625
 Type: Package
 Title: Linear regression with continuous variable
 Version: 0.1.0
-Author: Zhouchi Ni
+Author: ZhouchiNi
 Maintainer: Zhouchi Ni <zhouchi@umich.edu>
 Description: This package give four different function to create a linear regression model. 
     Using summary_linear to intergate all the information in a table. 

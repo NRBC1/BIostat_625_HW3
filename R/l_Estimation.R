@@ -21,8 +21,8 @@
 #' }
 #'
 #' @examples
-#' library(datasets)\cr
-#' data(iris)\cr
+#' library(datasets)
+#' data(iris)
 #' b_l <- basic_linear("Sepal.Length", "Sepal.Width Petal.Length",iris)
 #' l_E <- l_Estimation(b_l[[3]],b_l[[2]],b_l[[6]],b_l[[7]],b_l[[4]],b_l[[5]])
 l_Estimation <- function(x,y,x_m,y_m,n,p){

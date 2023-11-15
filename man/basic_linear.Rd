@@ -25,7 +25,7 @@ basic_linear returns a list. The list contains the following components:\cr
   \emph{dataset} \tab Equation used to fit the model.\cr
   \emph{y} \tab Output variable used to fit the model.\cr
   \emph{x} \tab Interested variable used to fit the model.\cr
-  \emphn{n} \tab Number of rows for x.\cr
+  \emph{n} \tab Number of rows for x.\cr
   \emph{p} \tab Number of columns for x.\cr
   \emph{x_m} \tab The matrix of x.\cr
   \emph{y_m} \tab The matrix of y.\cr
@@ -37,7 +37,7 @@ basic_linear returns a list. The list contains the following components:\cr
 linear is used to find basic information about Simple Linear Regression and Multiple Linear Regression models with continuous variables.
 }
 \examples{
-library(datasets)\cr
-data(iris)\cr
+library(datasets)
+data(iris)
 b_l <- basic_linear("Sepal.Length", "Sepal.Width Petal.Length Species",iris)
 }

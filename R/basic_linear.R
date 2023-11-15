@@ -23,8 +23,8 @@
 #' }
 #'
 #' @examples
-#' library(datasets)\cr
-#' data(iris)\cr
+#' library(datasets)
+#' data(iris)
 #' b_l <- basic_linear("Sepal.Length", "Sepal.Width Petal.Length Species",iris)
 basic_linear <- function(Y,X,dataset,intercept=TRUE){
 

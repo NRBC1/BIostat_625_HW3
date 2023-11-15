@@ -22,9 +22,9 @@
 #' }
 #'
 #' @examples
-#' library(datasets)\cr
-#' data(iris)\cr
-#' b_l <- basic_linear("Sepal.Length", "Sepal.Width Petal.Length Species",iris)
+#' library(datasets)
+#' data(iris)
+#' b_l <- basic_linear("Sepal.Length", "Sepal.Width Petal.Length",iris)
 #' l_E <- l_Estimation(b_l[[3]],b_l[[2]],b_l[[6]],b_l[[7]],b_l[[4]],b_l[[5]])
 #' l_s <- l_stat(l_E[[1]],l_E[[5]],l_E[[6]],l_E[[7]],b_l[[6]],b_l[[7]],b_l[[2]])
 l_stat<- function(betahat,se_betahat,sigma_squared,degree,x_m,y_m,y){
