@@ -1,0 +1,156 @@
+---
+title: "Tutorial"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(HW3.625)
+library(NHANES)
+library(Hmisc)
+library(bench)
+```
+
+# Package work flow
+
+We use the data set NHANES as a example to show how to use this package.
+
+```{r}
+#Looking at the NHANES data set
+head(NHANES)
+```
+
+First we fit the model using linear().  
+
+Here we use input information "BPSysAve", "SleepHrsNight BMI Age" and NHANES to three function as the test model.  
+```{r}
+b_l <- basic_linear("BPSysAve","SleepHrsNight BMI Age",NHANES)
+l_E <- l_Estimation(b_l[[3]],b_l[[2]],b_l[[6]],b_l[[7]],b_l[[4]],b_l[[5]])
+l_s <- l_stat(l_E[[1]],l_E[[5]],l_E[[6]],l_E[[7]],
+              b_l[[6]],b_l[[7]],b_l[[2]])
+
+```
+
+Next we use those variables to *summary_linear* to generate the results\  
+
+```{r}
+summary_linear(b_l,l_E,l_s)
+```
+
+# Test cases
+
+## SLR - variable is continous
+```{r}
+slr_bl <- basic_linear("BPSysAve","Age",NHANES)
+
+slr_le <- l_Estimation(slr_bl[[3]],slr_bl[[2]],slr_bl[[6]],
+                    slr_bl[[7]],slr_bl[[4]],slr_bl[[5]])
+
+slr_ls <- l_stat(slr_le[[1]],slr_le[[5]],slr_le[[6]],slr_le[[7]],
+              slr_bl[[6]],slr_bl[[7]],slr_bl[[2]])
+
+summary_linear(slr_bl,slr_le,slr_ls)
+```
+
+## SLR - variable is continous
+```{r}
+model_slr <- lm(BPSysAve~Age,NHANES)
+summary(model_slr)
+```
+
+
+## MLR - variables are all continous
+```{r}
+mlr_bl <- basic_linear("BPSysAve","SleepHrsNight BMI Age",NHANES)
+mlr_le <- l_Estimation(mlr_bl[[3]],mlr_bl[[2]],mlr_bl[[6]],
+                      mlr_bl[[7]],mlr_bl[[4]],mlr_bl[[5]])
+mlr_ls <- l_stat(mlr_le[[1]],mlr_le[[5]],mlr_le[[6]],mlr_le[[7]],
+              mlr_bl[[6]],mlr_bl[[7]],mlr_bl[[2]])
+summary_linear(mlr_bl,mlr_le,mlr_ls)
+```
+
+```{r}
+model_mlr <- lm(BPSysAve~SleepHrsNight+BMI+Age,NHANES)
+summary(model_mlr)
+```
+
+
+# Comparing linear() with exsiting function lm() 
+
+```{r}
+model_test1 <- mlr_le 
+model_test2 <- mlr_ls 
+```
+
+```{r}
+#Fitted model using lm()
+model_refer <- model_mlr
+```
+
+Checking the coefficient estimates
+
+```{r}
+all.equal(as.numeric(model_test1[[1]]),as.numeric(model_refer$coefficients))
+```
+
+Checking the confident interval of linear is the right answer.
+
+```{r}
+all.equal(as.numeric(model_test2[[6]]),as.numeric(confint(model_refer)[,1]))
+```
+
+```{r}
+all.equal(as.numeric(model_test2[[7]]),as.numeric(confint(model_refer)[,2]))
+```
+
+# Comparing summary_blog() with summary() from the base R
+```{r}
+#Between the same model fitted using lm_blog()
+summary(model_mlr)
+```
+
+```{r}
+summary_linear(mlr_bl,mlr_le,mlr_ls)
+```
+
+#Efficiency test
+```{r}
+system.time(basic_linear("Sepal.Length", "Sepal.Width Petal.Length",iris))
+```
+
+```{r}
+system.time(l_Estimation(b_l[[3]],b_l[[2]],b_l[[6]],b_l[[7]],b_l[[4]],b_l[[5]]))
+```
+
+```{r}
+system.time(l_stat(l_E[[1]],l_E[[5]],l_E[[6]],l_E[[7]],b_l[[6]],b_l[[7]],b_l[[2]]))
+```
+
+```{r}
+system.time(summary_linear(b_l,l_E,l_s))
+```
+
+```{r}
+#This is the time costed by exsiting function
+system.time(lm(Sepal.Length~Sepal.Width+Petal.Length,data=iris))
+```
+
+```{r}
+system.time(summary(model))
+```
+
+```{r}
+result <- bench::mark(as.numeric(model_test1[[1]]),as.numeric(model_refer$coefficients))
+print(result)
+```
+
