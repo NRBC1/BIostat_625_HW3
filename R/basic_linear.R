@@ -14,7 +14,7 @@
 #'   \emph{dataset} \tab Equation used to fit the model.\cr
 #'   \emph{y} \tab Output variable used to fit the model.\cr
 #'   \emph{x} \tab Interested variable used to fit the model.\cr
-#'   \emphn{n} \tab Number of rows for x.\cr
+#'   \emph{n} \tab Number of rows for x.\cr
 #'   \emph{p} \tab Number of columns for x.\cr
 #'   \emph{x_m} \tab The matrix of x.\cr
 #'   \emph{y_m} \tab The matrix of y.\cr
