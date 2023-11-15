@@ -1,4 +1,4 @@
-#' @Title Check significance of p-values and give symbols
+#' Check significance of p-values and give symbols
 #'
 #' @param p_value a vector of p-values.
 #'

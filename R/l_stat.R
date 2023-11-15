@@ -1,4 +1,4 @@
-#' @Title statistical information
+#'statistical information
 #'
 #' @param betahat Coefficient estimates.
 #' @param se_betahat The matrix of Standard Deviation.

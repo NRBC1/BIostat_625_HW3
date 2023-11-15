@@ -1,4 +1,4 @@
-#' @Title information of coefficient
+#' information of coefficient
 #'
 #' @param x Interested variable used to fit the model.
 #' @param y Output variable used to fit the model.

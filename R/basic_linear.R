@@ -1,4 +1,4 @@
-#' @title basic_linear processing the raw data
+#'basic_linear processing the raw data
 #'
 #'linear is used to find basic information about Simple Linear Regression and Multiple Linear Regression models with continuous variables.
 #' @param Y Output variable in Equation :Y ~ X1 + X2... + Xn in character.

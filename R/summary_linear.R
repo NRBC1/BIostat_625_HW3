@@ -1,4 +1,4 @@
-#' @Title Create A Summary Table
+#' Create A Summary Table
 #'
 #' @param b_l basic_linear
 #' @param l_E information of coefficient
