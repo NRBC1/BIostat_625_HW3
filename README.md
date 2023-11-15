@@ -3,10 +3,10 @@
   [![R-CMD-check](https://github.com/NRBC1/BIostat_625_HW3/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/NRBC1/BIostat_625_HW3/actions/workflows/R-CMD-check.yaml)
   [![Codecov test coverage](https://codecov.io/gh/NRBC1/BIostat_625_HW3/branch/main/graph/badge.svg)](https://app.codecov.io/gh/NRBC1/BIostat_625_HW3?branch=main)
 <!-- badges: end -->
-#R Package to operate linear regression
+# R Package to operate linear regression
 HW3.625 is a simplified package designed to facilitate regression analysis in R, mainly focusing on linear models. 
 
-##Description
+## Description
 The package contains custom implementations of functions such as basic_linear() and l_Estimation(), making the process of fitting a Linear Regression model and viewing a summary of the regression results more accessible for user.
 
 The model is given by:
@@ -14,10 +14,10 @@ $Y = X_1 + X_2 + ... + X_n + e$
 
 Comparing with the existing function lm() and summary(), it divide the information and data in lm() more reasonable and also give confident interval for each estimator in the model, which could be more easier to write statistical report just using one summary table.
 
-##Usage
+## Usage
 This package need R environment. After install this package, library this package and use the function in it. 
 
-##Functions
+## Functions
 basic_linear():basic_linear() is used to find basic information about Simple Linear Regression and Multiple Linear Regression models with continuous variables.
 
 l_Estimation():After using basic_linear(), we can put all the information in this function to get some estimated value of this model.
@@ -28,7 +28,7 @@ summary_linear():Using three function shown above, this function will display th
 
 significant_level():This function is mainly used in summary_linear() to how the significance of p-values of the coefficient estimates from the fitted model with a specific symbol making its more readable.
 
-##Example
+## Example
 Input data set iris
 library(datasets)
 data(iris)
@@ -57,5 +57,5 @@ library(bench)
 result <- bench::mark(as.numeric(model_test1[[1]]),as.numeric(model_refer$coefficients))
 print(result)
 
-##Contribution
+## Contribution
 Zhouchi Ni
