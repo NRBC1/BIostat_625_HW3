@@ -15,7 +15,7 @@ summary_linear(b_l, l_E, l_s)
 }
 \value{
 All the following result from the model fit:\cr
-Function call for \emph{linear}\cr and \emph{significant_level}\cr
+Function call for \emph{significant_level}\cr
 Summary statistics of residuals\cr
 Coefficient estimates and p-values\cr
 The confident interval of all variables\cr

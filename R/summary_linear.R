@@ -5,7 +5,7 @@
 #' @param l_s statistical information
 #'
 #' @return All the following result from the model fit:\cr
-#' Function call for \emph{linear}\cr and \emph{significant_level}\cr
+#' Function call for \emph{significant_level}\cr
 #' Summary statistics of residuals\cr
 #' Coefficient estimates and p-values\cr
 #' The confident interval of all variables\cr
@@ -45,7 +45,7 @@ summary_linear <- function(b_l,l_E,l_s){
                        "Pr(>|t|)" = p_valueplus,check.names = FALSE)
   print("Coefficients:")
   print(as.matrix(table1))
-  cat("Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1","\n")
+  cat("Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1","\n")
   print("Confident Interval:")
   table2 <- data.frame("2.5%CI"=Ci_low,
                        "97.5%CI"=Ci_up)

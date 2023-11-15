@@ -6,7 +6,7 @@ Author: ZhouchiNi
 Maintainer: Zhouchi Ni <zhouchi@umich.edu>
 Description: This package give four different function to create a linear regression model. 
     Using summary_linear to intergate all the information in a table. 
-License: GLP-2
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
