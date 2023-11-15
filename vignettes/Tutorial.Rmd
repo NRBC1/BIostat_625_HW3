@@ -160,4 +160,3 @@ system.time(summary(model))
 result <- bench::mark(as.numeric(model_test1[[1]]),as.numeric(model_refer$coefficients))
 print(result)
 ```
-
