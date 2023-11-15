@@ -12,5 +12,17 @@ test_that("multiplication works", {
   expect_equal(as.numeric(l_E[[1]]),as.numeric(model$coefficients))
   expect_equal(as.numeric(l_s[[6]]),as.numeric(model_refer[,1]))
   expect_equal(as.numeric(l_s[[7]]),as.numeric(model_refer[,2]))
+  expect_true(grepl("\\*\\*", significant_level(0.009)))
+
+  # Test case for 0.01 <= num_p < 0.05
+  expect_true(grepl("\\*", significant_level(0.04)))
+  expect_false(grepl("\\*\\*", significant_level(0.04)))
+
+  # Test case for 0.05 <= num_p < 0.1
+  expect_true(grepl("\\.", significant_level(0.06)))
+  expect_false(grepl("\\*", significant_level(0.06)))
+
+  # Test case for 0.1 <= num_p
+  expect_false(grepl(" ", significant_level(0.15)))
 
 })

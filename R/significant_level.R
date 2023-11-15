@@ -12,7 +12,7 @@
 #' }
 #'
 #' @examples
-#' p_array <- c(4.3253e-7,0.22312,0.00222,1)
+#' p_array <- c(0.02,0.0022312,0.07,0.000222,1)
 #' significant_level(p_array)
 significant_level <- function(p_value){
   num_p <- as.numeric(p_value)
